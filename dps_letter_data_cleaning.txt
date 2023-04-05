@@ -1,0 +1,64 @@
+Assault
+
+Terms:
+- assault
+
+=IF(ISNUMBER(SEARCH("assault",H2)),"Yes","No")
+
+
+Weapon
+
+terms:
+- weapon
+- gun
+- handgun
+-firearm
+
+=IF(ISNUMBER(SEARCH("weapon",H2)),"Yes",IF(ISNUMBER(SEARCH("gun",H2)),"Yes",IF(ISNUMBER(SEARCH("handgun",H2)),"Yes",IF(ISNUMBER(SEARCH("firearm",H2)),"Yes","No"))))
+
+
+
+Car theft
+
+terms:
+
+- Motoer Vehicle 
+- motor vehicle
+- car
+
+
+=IF(ISNUMBER(SEARCH("Motoer Vehicle",H2)),"Yes",IF(ISNUMBER(SEARCH("motor vehicle",H2)),"Yes",IF(ISNUMBER(SEARCH("car",H2)),"Yes",IF(ISNUMBER(SEARCH("motor",H2)),"Yes","No"))))
+
+
+
+Murder
+
+-murder
+-rmurder
+
+=IF(ISNUMBER(SEARCH("murder",I2)),"Yes",IF(ISNUMBER(SEARCH("rmurder",I2)),"Yes","No"))
+
+
+
+Theft
+- theft
+- burglary
+- robbery 
+
+=IF(ISNUMBER(SEARCH("theft",I2)),"Yes",IF(ISNUMBER(SEARCH("burglary",I2)),"Yes",IF(ISNUMBER(SEARCH("robbery",I2)),"Yes","No")))
+
+
+Sex crimes
+
+terms:
+- sex
+- sex assault
+- sexual contact
+
+
+=IF(ISNUMBER(SEARCH("sex",I2)),"Yes",IF(ISNUMBER(SEARCH("sex assault",I2)),"Yes",IF(ISNUMBER(SEARCH("sexual contact",I2)),"Yes","No")))
+
+
+
+
+
