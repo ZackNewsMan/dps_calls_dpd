@@ -65,6 +65,8 @@ dps <- cfs_at_schools_since_2018
   
   # I am curious if the numbers change for some of the higher priority calls - 1 and 2 
       
+      filtered_dps_0 <- filtered_dps %>% 
+        filter(priority_number == "0") 
       
       filtered_dps_1 <- filtered_dps %>% 
         filter(priority_number == "1") 
@@ -72,56 +74,60 @@ dps <- cfs_at_schools_since_2018
       filtered_dps_2 <- filtered_dps %>% 
         filter(priority_number == "2") 
       
+      
       filtered_dps_1_2 <- filtered_dps_2 %>% full_join(filtered_dps_1)
+      
+      filtered_dps_0_2 <- filtered_dps_0 %>% full_join(filtered_dps_1_2)
           
-      # 4,026 rows 
+      # 4,072 rows 
         # Same in SQL, 4,026 rows. 
           # select * 
           #  from filtered_dps_2
           # where priority_number = "1"
           # or priority_number = "2"
      
-      filtered_dps_1_2 %>% 
+      filtered_dps_0_2 %>% 
         group_by(year) %>% 
         summarize(count = n())  
      
       # Police are called for more serious incidents at about the same rate before SRO's were pulled
-        
-          # year count
-          #  2018  1118
-          #  2019   927
-          #  2020   372
-          #  2021   600
-          #  2022   841
-          #  2023   168
+          
       
+      # year count
+      # 2018  1132
+      #  2019   930
+      #  2020   377
+      #  2021   607
+      #  2022   854
+      #  2023   172
       
       # Echo'd in SQL:
           # CREATE TABLE "filtered_dps_2" as
           # SELECT DISTINCT(master_incident_number), year, priority_number
           # from dps
           
-          # SELECT year, count(year)
-          # from filtered_dps_2
-          # where priority_number = "1"
-          # or priority_number = "2"
-          # group by year
+      # SELECT year, count(year)
+      # from filtered_dps_2
+      # where priority_number = "1"
+      # or priority_number = "2"
+      # or priority_number = "0"
+      # group by year
       
       
     # Charting the data:
       
-      calls_year_1_2 <- filtered_dps_1_2 %>% 
+      calls_year_0_2 <- filtered_dps_0_2 %>% 
         group_by(year) %>% 
         summarize(count = n())
       
-      ggplot(calls_year_1_2) +
+      ggplot(calls_year_0_2) +
         geom_line(mapping = aes(x = year, y = count))
 
 ###### what are the calls typically for? ##########
 
    # higher priority:    
         
-      filtered_dps_1_2 %>% 
+      filtered_dps_0_2 %>% 
         group_by(problem) %>% 
         summarize(count = n()) %>% 
         View()
@@ -136,6 +142,7 @@ dps <- cfs_at_schools_since_2018
         # from problem
         # where priority_number = "1"
           # or priority_number = "2"
+          # or priority_number = "0"
         # group by problem
         # order by count(problem) DESC
       
@@ -161,24 +168,25 @@ dps <- cfs_at_schools_since_2018
 
 # More serious
         
-        filtered_dps_1_2 %>% 
+        filtered_dps_0_2 %>% 
           group_by(cfs_address) %>% 
           summarize(count = n()) %>% 
           View()
         
         # Top 5: 
-        # 5000 N Crown Blvd	105
-        # 2960 N Speer Blvd	100
-        # 951 N Elati St	95
-        # 1820 N Lowell Blvd	93
-        # 4800 N Telluride St	91
+        # 5000 N Crown Blvd	107
+        # 2960 N Speer Blvd	103
+        # 951 N Elati St	96
+        # 1820 N Lowell Blvd	95
+        # 4800 N Telluride St	94
         
       # Echo'd by SQL: 
-        #  CREATE TABLE "call_address_1_2" as
+        #  CREATE TABLE "call_address_0_2" as
         #  SELECT DISTINCT(master_incident_number), cfs_address, priority_number, problem
         #   from dps
         #  where priority_number = "1"
         #  or priority_number = "2"
+        # or priority_number = "0"
         
         # SELECT cfs_address, count(cfs_address)
         # from call_address_1_2
