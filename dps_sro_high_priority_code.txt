@@ -1,0 +1,227 @@
+########## high priority calls to just schools who lost a SRO ########
+   # List of campuses: https://www.dpsk12.org/sro-transition/schools-transitioning/ 
+   # All out by end of 2021, some out by 2020    
+          
+     # Bruce Randolph: 
+          # 3955 STEELE ST
+     
+        sro_1 <- filtered_dps_0_2 %>% 
+          filter(school_address == "3955 STEELE ST")
+          
+     # DMLK Campus -- Dr. Martin Luther King Jr. early College
+        # 19535 E 46TH AVE
+          
+        sro_2 <- filtered_dps_0_2 %>% 
+          filter(school_address == "19535 E 46TH AVE")
+
+     # DSST Cole High School	
+        # 3240 HUMBOLDT ST
+        
+        sro_3 <- filtered_dps_0_2 %>% 
+          filter(school_address == "3240 HUMBOLDT ST")
+     
+     #  East Campus -- East High School
+        # 1600 CITY PARK ESPLANADE
+        
+        sro_4 <- filtered_dps_0_2 %>% 
+          filter(school_address == "1600 CITY PARK ESPLANADE")
+        
+      # Evie Dennis Campus: Soar at Green Valley Ranch, DSST at Green Valley Ranch Middle & High School, Strive Prep Green Valley Ranch, Vista Academy
+        # 4800 TELLURIDE ST #2
+        
+        sro_5 <- filtered_dps_0_2 %>% 
+          filter(school_address == "4800 TELLURIDE ST #2")
+        
+      # George Washington Campus - George Washington High School, Delta
+        # 655 S MONACO PKWY
+        
+        sro_6 <- filtered_dps_0_2 %>% 
+          filter(school_address == "655 S MONACO PKWY")   
+        
+      # Henry Campus --   Bear Valley International School (BVIS), DSST Henry Middle School
+        # 3005 S GOLDEN WAY
+        
+        sro_7 <- filtered_dps_0_2 %>% 
+          filter(school_address == "3005 S GOLDEN WAY")
+        
+      # John F. Kennedy Campus
+        # 2855 S LAMAR ST
+        
+        sro_8 <- filtered_dps_0_2 %>% 
+          filter(school_address == "2855 S LAMAR ST")
+       
+      # Kepner Campus - 	Strive Prep Kepner, Kepner Beacon Middle School, Rocky Mountain Prep
+        # 911 S HAZEL CT
+        
+        sro_9 <- filtered_dps_0_2 %>% 
+          filter(school_address == "911 S HAZEL CT")
+        
+      # Kunsmiller Campus -- Kunsmiller Elementary, Middle, High School
+        # 2250 S QUITMAN WAY
+        
+        sro_10 <- filtered_dps_0_2 %>% 
+          filter(school_address == "2250 S QUITMAN WAY")
+         
+      #  Lake Campus -- Lake, Strive Prep-Lake
+        # 1820 LOWELL BLVD
+        
+        sro_11 <- filtered_dps_0_2 %>% 
+          filter(school_address == "1820 LOWELL BLVD")
+        
+      #  Lincoln Campus -- Abraham Lincoln High School, Respect Academy, Compass Academy
+        # 2285 S FEDERAL BLVD
+        
+        sro_12 <- filtered_dps_0_2 %>% 
+          filter(school_address == "2285 S FEDERAL BLVD")
+      
+      # Manual Campus -- Manual High School, McAuliffe Manual Middle School
+        # 1700 E 28TH AVE
+        
+        sro_13 <- filtered_dps_0_2 %>% 
+          filter(school_address == "1700 E 28TH AVE")
+        
+      #  Montbello Campus -- DCIS-Montbello Middle and High School, Noel Community Arts School (NCAS), Strive Prep Montbello
+        # 5000 CROWN BLVD
+        
+        sro_14 <- filtered_dps_0_2 %>% 
+          filter(school_address == "5000 CROWN BLVD")
+        
+      #  North Campus -- North High School, North Engagement Center
+        # 2960 N SPEER BLVD
+        
+        sro_15 <- filtered_dps_0_2 %>% 
+          filter(school_address == "2960 N SPEER BLVD")
+        
+      # Northfield Campus  -- Northfield High School, DSST Conservatory Green High School
+       # 5500 N CENTRAL PARK BLVD
+        
+        sro_16 <- filtered_dps_0_2 %>% 
+          filter(school_address == "5500 N CENTRAL PARK BLVD")
+      
+      # South Campus --  South High School  
+        # 1700 E LOUISIANA AVE
+        
+        sro_17 <- filtered_dps_0_2 %>% 
+          filter(school_address == "1700 E LOUISIANA AVE")
+        
+      # Thomas Jefferson Campus -- 	Thomas Jefferson High School  
+        # 3950 S HOLLY ST
+             
+        sro_18 <- filtered_dps_0_2 %>% 
+          filter(school_address == "3950 S HOLLY ST")
+        
+      # West Campus -- West Early College (WEC), West Leadership Academy (WLA)
+        # 951 ELATI ST
+          
+        sro_19 <- filtered_dps_0_2 %>% 
+          filter(school_address == "951 ELATI ST")
+
+ ### Now let's put all the SRO calls together 
+        
+        
+       sro_1_2 <- sro_2 %>% full_join(sro_1)
+       
+       sro_1_3 <- sro_3 %>% full_join(sro_1_2)
+        
+        sro_1_4 <- sro_4 %>% full_join(sro_1_3)
+        
+        sro_1_5 <- sro_5 %>% full_join(sro_1_4)
+        
+        sro_1_6 <- sro_6 %>% full_join(sro_1_5)
+        
+        sro_1_7 <- sro_7 %>% full_join(sro_1_6)
+        
+        sro_1_8 <- sro_8 %>% full_join(sro_1_7)
+        
+        sro_1_9 <- sro_9 %>% full_join(sro_1_8)
+        
+        sro_1_10 <- sro_10 %>% full_join(sro_1_9)
+        
+        sro_1_11 <- sro_11 %>% full_join(sro_1_10)
+        
+        sro_1_12 <- sro_12 %>% full_join(sro_1_11)
+        
+        sro_1_13 <- sro_13 %>% full_join(sro_1_12)
+        
+        sro_1_14 <- sro_14 %>% full_join(sro_1_13)
+        
+        sro_1_15 <- sro_15 %>% full_join(sro_1_14)
+        
+        sro_1_16 <- sro_16 %>% full_join(sro_1_15)
+        
+        sro_1_17 <- sro_17 %>% full_join(sro_1_16)
+        
+        sro_1_18 <- sro_18 %>% full_join(sro_1_17)
+        
+        sro_1_19 <- sro_19 %>% full_join(sro_1_18)
+      
+        # 1,331 rows in sro_1_19 
+         # Same in SQL, 1331 rows
+        
+        
+        # CREATE TABLE "filtered_dps" as
+        # SELECT DISTINCT(master_incident_number), year, priority_number, school_address
+        # from dps
+        
+        # CREATE TABLE "call_address_0_2" as
+        # SELECT DISTINCT(master_incident_number), school_address, priority_number, problem, year
+        # from dps
+        # where priority_number = "1"
+        # or priority_number = "2"
+        # or priority_number = "0"
+    
+        # CREATE TABLE "sro_1_19" as
+        # SELECT *
+        #   FROM call_address_0_2
+        # WHERE school_address = "3955 STEELE ST"
+        # or school_address = "19535 E 46TH AVE"
+        # or school_address = "3240 HUMBOLDT ST"
+        # or school_address = "1600 CITY PARK ESPLANADE"
+        # or school_address = "4800 TELLURIDE ST #2"
+        # or school_address = "655 S MONACO PKWY"
+        # or school_address = "3005 S GOLDEN WAY"
+        # or school_address = "2855 S LAMAR ST"
+        # or school_address = "911 S HAZEL CT"
+        # or school_address = "2250 S QUITMAN WAY"
+        # or school_address = "1820 LOWELL BLVD"
+        # or school_address = "2285 S FEDERAL BLVD"
+        # or school_address = "1700 E 28TH AVE"
+        # or school_address = "5000 CROWN BLVD"
+        # or school_address = "2960 N SPEER BLVD"
+        # or school_address = "5500 N CENTRAL PARK BLVD"
+        # or school_address = "1700 E LOUISIANA AVE"
+        # or school_address = "3950 S HOLLY ST"
+        # or school_address = "951 ELATI ST"
+        
+# Alright after all of that -- how many per year?
+        
+        sro_1_19 %>% 
+        group_by(year) %>% 
+          summarize(count = n())
+        
+        # Even at campuses that specifically lost SRO's, police were still called at around the same rate for urgent calls after losing them in 2020 and 2021 as they were before. 
+          # Urgent = priority numbers 0,1 and 2.    
+                  
+              # year count
+              #  2018   328
+              #  2019   295
+              #  2020   105
+              #  2021   232
+              #  2022   306
+              #  2023    65
+        
+        # Findings echo'd in SQL:
+        
+            # SELECT year, count(year)
+            # from sro_1_19
+            # group by year
+            
+        
+      # Let's map it:  
+        
+        calls_year_sro_0_2 <- sro_1_19 %>% 
+          group_by(year) %>% 
+          summarize(count = n())
+        
+        ggplot(calls_year_sro_0_2) +
+          geom_line(mapping = aes(x = year, y = count))  
